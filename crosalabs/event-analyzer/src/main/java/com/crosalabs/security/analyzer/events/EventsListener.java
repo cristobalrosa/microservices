@@ -21,11 +21,10 @@ public class EventsListener {
     @KafkaListener(topics = "events")
     public void order(Event event, Acknowledgment acknowledgment) {
         log.info("Received event " + event.getId());
-        acknowledgment.acknowledge();
         try {
             this.eventStorageService.save(event);
+            acknowledgment.acknowledge();
         } catch (Exception e) {
-            e.printStackTrace();
             log.warning("Unable to save the event in ES.");
             log.warning(e.getMessage());
         }

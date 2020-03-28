@@ -10,11 +10,8 @@ import java.util.UUID;
 @Data
 @Document(indexName = "events", type="events")
 public class Event {
-    private final UUID id;
-    private final String rawData;
+    private UUID id;
+    private String rawData;
 
-    public Event() {
-        this.id = UUID.randomUUID();
-        this.rawData = RandomStringUtils.randomAlphabetic(1000);
-    }
+    public Event() {}
 }

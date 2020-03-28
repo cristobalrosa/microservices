@@ -11,7 +11,11 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
 
 @Configuration
 @EnableElasticsearchRepositories(basePackages = "com.crosalabs.security.analyzer.repositories")
-@ComponentScan(basePackages = { "com.crosalabs.security.analyzer.services", "com.crosalabs.security.analyzer.events" })
+@ComponentScan(basePackages = {
+        "com.crosalabs.security.analyzer.services",
+        "com.crosalabs.security.analyzer.events",
+        "com.crosalabs.security.analyzer.model"
+})
 public class ESConfig {
 
     @Value("${elasticsearch.host}")

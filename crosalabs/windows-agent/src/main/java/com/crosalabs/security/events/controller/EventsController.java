@@ -9,25 +9,22 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class EventsController {
-    private final EventsService eventsService;
 
-    // inject via application.properties
-    @Value("${welcome.message}")
-    private String message;
+    private final EventsService eventService;
 
-    public EventsController(EventsService eventsService) {
-        this.eventsService = eventsService;
+    public EventsController(EventsService eventService) {
+        this.eventService = eventService;
     }
 
     @RequestMapping(value = "/justOne", method = RequestMethod.POST)
-    public ModelAndView post() {
-        eventsService.create();
+    public ModelAndView postOne(){
+        eventService.create();
         return new ModelAndView("success");
     }
 
     @RequestMapping(value = "/createMany", method = RequestMethod.POST)
-    public ModelAndView post(int number) {
-        eventsService.create(number);
+    public ModelAndView postMany(int number){
+        eventService.create(number);
         return new ModelAndView("success");
     }
 }
