@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<style>
+    .pagination {
+        display: inline-block;
+    }
+
+    .pagination a {
+        color: black;
+        float: left;
+        padding: 5px 5px;
+        text-decoration: none;
+    }
+
+    .pagination a.active {
+        background-color: gray;
+        color: white;
+        border-radius: 2px;
+    }
+</style>
+<head>
+    <title>Event List</title>
+</head>
+<body>
+<h1>Event List</h1>
+
+<div>
+    <ol>
+        <li> Search By EventId
+            <form action="#" th:action="@{/withId}" method="get">
+                <table border="0">
+                    <tr>
+                        <td>Number of events to generate</td>
+                        <td><input type="text" th:name="eventId"/></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Submit"/></td>
+                    </tr>
+                </table>
+            </form>
+        </li>
+    </ol>
+</div>
+
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Event Id</th>
+        <th>Raw Data</th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+    <tr th:each="event, iStat : ${eventsPage.content}"
+        th:style="${iStat.odd}? 'font-weight: bold;'"
+        th:alt-title="${iStat.even}? 'even' : 'odd'">
+        <td th:text="${event.id}"/>
+        <td th:text="${event.rawData}"/>
+    </tr>
+    </tbody>
+
+</table>
+
+<div th:if="${eventsPage.totalPages > 0}" class="pagination"
+     th:each="pageNumber : ${pageNumbers}">
+    <a th:href="@{/(size=${eventsPage.size}, page=${pageNumber})}"
+       th:text=${pageNumber}
+       th:class="${pageNumber==eventsPage.number + 1} ? active"></a>
+</div>
+
+</body>
+</html>
