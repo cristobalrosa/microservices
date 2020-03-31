@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: events.genertor
+---
+testFramework: junit
+sourceLanguage: java

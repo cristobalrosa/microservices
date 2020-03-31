@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: events.procesor
+---
+testFramework: junit
+sourceLanguage: java

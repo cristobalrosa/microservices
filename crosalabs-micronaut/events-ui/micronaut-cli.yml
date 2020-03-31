@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: events.ui
+---
+testFramework: junit
+sourceLanguage: java

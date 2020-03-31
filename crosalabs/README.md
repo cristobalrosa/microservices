@@ -2,7 +2,7 @@ Crosa labs example application
 =================================
 
 This is just a simple and small application to demostrate how you can use kafka, elasticsearch and Spring boot to create
-an microservice ecosystem. 
+a microservice ecosystem. 
 
 The application will only have 3 microservices:
  - windows-agent: Simulates an application running in windows hosts and creating events that will be sent to kafka

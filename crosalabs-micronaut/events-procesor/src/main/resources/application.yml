@@ -1,0 +1,17 @@
+micronaut:
+  server:
+    port: 8081
+  application:
+    name: events-procesor
+    executors:
+      consumer:
+        type: fixed
+        nThreads: 25
+
+kafka:
+  bootstrap:
+    servers:  kafka:9092
+
+elasticsearch:
+  httpHosts: "http://elasticsearch:9200,http://192.168.99.103:9200"
+

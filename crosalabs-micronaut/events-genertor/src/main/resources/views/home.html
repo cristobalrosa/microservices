@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Crosa Windows Event generator</title>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">CrosaLabs.com</a>
+</nav>
+
+<main role="main" class="container">
+
+    <ol>
+        <li> Generate a random Event
+            <form action="#" th:action="@{/justOne}" method="post">
+                <table border="1">
+                    <tr>
+                        <td><input type="submit" value="Submit" /></td>
+                    </tr>
+                </table>
+            </form>
+
+        </li>
+        <li>Generate a given number of random events.
+            <form action="#" th:action="@{/createMany}" method="post">
+                <table border="0">
+                    <tr>
+                        <td>Number of events to generate</td>
+                        <td><input type="number" th:name="number" /></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Submit" /></td>
+                    </tr>
+                </table>
+            </form>
+        </li>
+    </ol>
+
+</main>
+<!-- /.container -->
+
+<script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+</body>
+</html>

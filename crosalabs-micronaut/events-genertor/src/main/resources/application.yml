@@ -1,0 +1,13 @@
+micronaut:
+  application:
+    name: events-genertor
+  views:
+    enabled: true
+    folder: views
+kafka:
+  bootstrap:
+    servers:  kafka:9092
+endpoints:
+  all:
+    enabled: true
+    sensitive: false
